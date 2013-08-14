@@ -111,14 +111,8 @@ Attributions
 
 Thanks
 -------
-Finally I'd like to say thanks for the opportunity to participate in this assessment task.
-I had quite a lot of fun putting it together and continually find new ways to improve the robot.
-Whether it be through fun easter eggs, by letting the robot make complaints (when asked to move off
-the table), or possibly causing the robot to self-destruct.
-Ultimately, I dreamed of wanting to name this robot 'terminator 2000' and allowing it to resurrect itself 
-with catchy phrases like 'I'll be back', 'its NOT a tumor!' or 'get to da choppa!!!'
-
-I had a lot fun and I sincerely thank the REA group for the opportunity and hope to hear
+Thanks for the opportunity to participate in this assessment task.
+I did feel it was a little rushed but I am happy with the solution and am looking forward to
 your feedback soon.
 
 Alwin Chin
