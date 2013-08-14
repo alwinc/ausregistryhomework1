@@ -75,28 +75,33 @@ Step 1. Zone Domains
 Please enter all zone domains with their prices per year. If duplicates are found, the LAST entry will be considered
 When complete just press ENTER
 eg - .com,10
-.com,10
+```
+<b>.com,10
 .net,9
-.com.au,20
+.com.au,20</b>
 
+```
 Step 2. Premium Domains
 Please enter all PREMIUM domains with their prices per year. If duplicates are found, the LAST entry will be considered
 When complete just press ENTER
 eg - apple.com.au,10
-apple.com.au,1000
+```
+<b>apple.com.au,1000
 dict.com,800
-education.net,300
+education.net,300</b>
 
+```
 Step 2. Domain Requests
 Please enter all domain requests with the years you would like to have them for. If duplicates are found, the LAST entry will be considered
 When complete just press ENTER
 eg - dict.com,1
-a-domain.com,1
-another-domain.net,2
-dict.com,5
-
-$4028.00
 ```
+<b>a-domain.com,1
+another-domain.net,2
+dict.com,5</b>
+
+<emp>$4028.00</emp>
+
 
 Attributions
 -------------
