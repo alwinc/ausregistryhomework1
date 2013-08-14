@@ -7,10 +7,9 @@ package com.winnergenic.ausregistry.domain;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -37,12 +36,12 @@ public class CommandLineParserDelegate {
 	
 	/**
 	 * This parses all the domains from the reader to generate the 
-	 * command list to be returned
+	 * Map of domains
 	 * @return
 	 * @throws IOException only if we use a sensitive parser and if a problem occurs on parsing the commands
 	 */
-	public Set<Domain> parseDomains() throws IOException {
-		Set<Domain> domainSet = new HashSet<Domain>();
+	public Map<String, Domain> parseDomains() throws IOException {
+		Map<String, Domain> domainMap = new HashMap<String, Domain>();
 		
 		String line = "";
 		int lineNumber = 1;
@@ -56,31 +55,31 @@ public class CommandLineParserDelegate {
 			String lineTrimmedLower = line.trim().toLowerCase();
 			
 			StringTokenizer strTok = new StringTokenizer(lineTrimmedLower, ","); // tokenizing on comma
-			String domain = strTok.nextToken(); // domain token
-			String numbInput = strTok.nextToken(); // price
+			String domain = strTok.nextToken().trim(); // domain token
+			String numbInput = strTok.nextToken().trim(); // price
 			
 			Domain aDomain = new Domain(domain, new BigDecimal(numbInput));
-			domainSet.add(aDomain);
+			domainMap.put(domain, aDomain);
 
 			lineNumber++;
 		}
 		
-		return domainSet;
+		return domainMap;
 	}
 	
 	/**
 	 * This parses all the domains from the reader to generate the 
-	 * command list to be returned
+	 * Premium Domains
 	 * @return
 	 * @throws IOException only if we use a sensitive parser and if a problem occurs on parsing the commands
 	 */
-	public Set<PremiumDomain> parsePremiumDomains() throws IOException {
-		Set<PremiumDomain> domainSet = new HashSet<PremiumDomain>();
+	public Map<String, PremiumDomain> parsePremiumDomains() throws IOException {
+		Map<String, PremiumDomain> domainMap = new HashMap<String, PremiumDomain>();
 		
 		String line = "";
 		int lineNumber = 1;
 		while((line=reader.readLine()) != null) {
-			log.debug(line); // showing parsed line
+			log.debug(lineNumber + " " + line); // showing parsed line
 			
 			if (StringUtils.isEmpty(line)) {
 				break; // empty lines will be treated as EOL 
@@ -89,32 +88,32 @@ public class CommandLineParserDelegate {
 			String lineTrimmedLower = line.trim().toLowerCase();
 			
 			StringTokenizer strTok = new StringTokenizer(lineTrimmedLower, ","); // tokenizing on comma
-			String name = strTok.nextToken(); // domain token
-			String numbInput = strTok.nextToken(); // price
+			String name = strTok.nextToken().trim(); // domain token
+			String numbInput = strTok.nextToken().trim(); // price
 			
 			PremiumDomain aDomain = new PremiumDomain(name, new BigDecimal(numbInput));
-			domainSet.add(aDomain);
+			domainMap.put(name,  aDomain);
 
 			lineNumber++;
 		}
 		
-		return domainSet;
+		return domainMap;
 	}
 	
 	
 	/**
 	 * This parses all the domains from the reader to generate the 
-	 * command list to be returned
-	 * @return
+	 * domain requests
+	 * @return set of domain requests
 	 * @throws IOException only if we use a sensitive parser and if a problem occurs on parsing the commands
 	 */
-	public List<DomainRequest> parseRequests() throws IOException {
-		Set<PremiumDomain> domainSet = new HashSet<PremiumDomain>();
+	public Set<DomainRequest> parseRequests() throws IOException {
+		Set<DomainRequest> domainSet = new HashSet<DomainRequest>();
 		
 		String line = "";
 		int lineNumber = 1;
 		while((line=reader.readLine()) != null) {
-			log.debug(line); // showing parsed line
+			log.debug(lineNumber + " " + line); // showing parsed line
 			
 			if (StringUtils.isEmpty(line)) {
 				break; // empty lines will be treated as EOL 
@@ -123,12 +122,15 @@ public class CommandLineParserDelegate {
 			String lineTrimmedLower = line.trim().toLowerCase();
 			
 			StringTokenizer strTok = new StringTokenizer(lineTrimmedLower, ","); // tokenizing on comma
-			String name = strTok.nextToken(); // domain token
-			String numbInput = strTok.nextToken(); // price
+			String name = strTok.nextToken().trim(); // domain token
+			String numbInput = strTok.nextToken().trim(); // price
 			
-			PremiumDomain aDomain = new PremiumDomain(name, new BigDecimal(numbInput));
-			domainSet.add(aDomain);
-
+			DomainRequest requestedDomain = new DomainRequest();
+			requestedDomain.setRequestedDomain(name);
+			
+			int yearsReq = Integer.valueOf(numbInput);
+			requestedDomain.setYearsRequested(yearsReq);
+			domainSet.add(requestedDomain);
 			lineNumber++;
 		}
 		

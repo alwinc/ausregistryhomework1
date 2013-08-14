@@ -40,4 +40,39 @@ public class DomainRequest {
 	public void setYearsRequested(int yearsRequested) {
 		this.yearsRequested = yearsRequested;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((requestedDomain == null) ? 0 : requestedDomain.hashCode());
+		result = prime * result + yearsRequested;
+		return result;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof DomainRequest))
+			return false;
+		DomainRequest other = (DomainRequest) obj;
+		if (requestedDomain == null) {
+			if (other.requestedDomain != null)
+				return false;
+		} else if (!requestedDomain.equals(other.requestedDomain))
+			return false;
+		if (yearsRequested != other.yearsRequested)
+			return false;
+		return true;
+	}
+	
+	
 }

@@ -1,3 +1,11 @@
-PLACE 0,0,NORTH
-MOVE
-REPORT
+.com,10
+.net,9
+.com.au,20
+
+apple.com.au,1000
+dict.com,800
+education.net,300
+
+a-domain.com,1
+another-domain.net,2
+dict.com,5
