@@ -83,7 +83,7 @@ public class DomainRegistrar {
 	/**
 	 * Calculates the total costs of the domains requested
 	 */
-	private BigDecimal calculateCosts() {
+	public BigDecimal calculateCosts() {
 		BigDecimal total = BigDecimal.ZERO;
 		for(DomainRequest dr : domainRequests) {
 			// first check the premium list

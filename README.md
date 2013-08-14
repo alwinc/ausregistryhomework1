@@ -32,20 +32,20 @@ Things to improve on
 I unfortunately did this assignment late in the evening as I was fairly busy tonight.
 If I had additional time I would have implemented flags that would allow file input.
 
-One concept would have been allowing users to
+One concept would have been allowing users to use flags like the below example
 
 `java -jar domainregistrar.jar -z <zonefile> -p <premiumzonesfile> -r <requesteddomains>`
 
 How to build
 ------------
-I built this robot using the awesomeness of Maven.
+I built this Domain registrar calculator using the awesomeness of Maven.
 So if you have maven installed on your computer, all you have to do is the following commands
 at the root project folder (where reagrouprobot folder exists)
 
 `mvn clean compile assembly:single`
 
 This will compile an executable JAR with all dependencies pre-packaged
-* `reagrouprobot\target\domainregistrar.jar`
+* `domainregistrar\target\domainregistrar.jar`
 
 with the main function in com.winnergenic.ausregistry.domain.DOMAINREGISTRAR already referenced to in the MANIFEST.MF file
 
@@ -65,7 +65,8 @@ The order of execution is in the following format
 
 eg.
 
-`=======================================================
+```
+=======================================================
 =	AUSREGISTRY ASSIGNMENT 1
 =======================================================
 
@@ -76,7 +77,26 @@ When complete just press ENTER
 eg - .com,10
 .com,10
 .net,9
-.com.au,20`
+.com.au,20
+
+Step 2. Premium Domains
+Please enter all PREMIUM domains with their prices per year. If duplicates are found, the LAST entry will be considered
+When complete just press ENTER
+eg - apple.com.au,10
+apple.com.au,1000
+dict.com,800
+education.net,300
+
+Step 2. Domain Requests
+Please enter all domain requests with the years you would like to have them for. If duplicates are found, the LAST entry will be considered
+When complete just press ENTER
+eg - dict.com,1
+a-domain.com,1
+another-domain.net,2
+dict.com,5
+
+$4028.00
+```
 
 Attributions
 -------------
